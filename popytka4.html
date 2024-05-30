@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Веб-чат</title>
+<style>
+  /* Стилизация чата */
+  #chat-container {
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+
+  #message-input {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .message {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+  }
+</style>
+</head>
+<body>
+
+<div id="chat-container">
+  <!-- Сообщения будут отображаться здесь -->
+</div>
+
+<input type="text" id="message-input" placeholder="Введите сообщение...">
+<button onclick="sendMessage()">Отправить</button>
+
+<script>
+  function sendMessage() {
+    var message = document.getElementById('message-input').value;
+    if(message.trim() !== '') {
+      var messageElement = document.createElement('div');
+      messageElement.classList.add('message');
+      messageElement.textContent = message;
+      document.getElementById('chat-container').appendChild(messageElement);
+      document.getElementById('message-input').value = '';
+    }
+  }
+</script>
+
+</body>
+</html>
